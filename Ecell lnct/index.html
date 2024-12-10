@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <nav class="fixed top-0 left-0 w-full bg-black/90 backdrop-blur-sm transition-transform duration-300 z-50" id="navbar">
+                <div class="flex justify-between items-center px-[5vw] py-[1vw]">
+                    <div class="logo">
+                        <img src="./LOGO.png" class="h-[4vw]" alt="E-Cell Logo">
+                    </div>
+                    <div class="nav-links flex gap-[2vw] items-center text-[1.2vw]">
+                        <a href="#page1" class="hover:text-[#BD9F67] transition-colors">Home</a>
+                        <a href="#page2" class="hover:text-[#BD9F67] transition-colors">About Us</a>
+                        <a href="#" class="hover:text-[#BD9F67] transition-colors">Gallery</a>
+                        <a href="#page5" class="hover:text-[#BD9F67] transition-colors">Contact</a>
+                        <a href="#page3" class="hover:text-[#BD9F67] transition-colors">Blogs</a>
+                    </div>
+                </div>
+            </nav>
+            <script>
+                let prevScrollPos = window.pageYOffset;
+                const navbar = document.getElementById('navbar');
+                
+                window.onscroll = function() {
+                    const currentScrollPos = window.pageYOffset;
+                    
+                    if (prevScrollPos > currentScrollPos) {
+                        navbar.style.transform = "translateY(0)";
+                    } else {
+                        navbar.style.transform = "translateY(-100%)";
+                    }
+                    
+                    prevScrollPos = currentScrollPos;
+                }
+
+                // Add smooth scrolling for navigation links
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href').slice(1);
+                        const targetElement = document.querySelector(`.${targetId}`);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
+                });
+            </script>
+        </div>
+        <div class="page1 w-full h-full flex justify-between items-center px-[5vw]">
+            <div class="page1-left w-[50%] h-full flex items-center ">
+                <div class="text-[2vw] w-full h-[40%] flex flex-col items-start justify-between font-semibold">
+                    <h1 class="text-[3vw]">E-CELL LNCTS</h1>
+                    <h1 class="px-[2vw] py-[1vw] bg-white text-black rounded-full">Know More <i class="ri-arrow-right-circle-fill"></i></h1>
+                </div>
+            </div>
+            <div class="page1-right w-[50%] h-full flex justify-center ">
+                <img src="./LOGO.png" alt="">
+            </div>
+        </div>
+        <div class="page2 w-ful h-[100vh] text-black flex flex-col items-center justify-between py-[3vw] px-[5vw]">
+            <div class="page2-header ">
+                <h1 class="text-center text-[#BD9F67] text-[3vw] font-bold tracking-tighter mb-[2vw]">WHAT IS E-CELL?</h1>
+                <p class="text-[2vw] text-center">Entrepreneurship cells provides a platform to
+                    develop entrepreneurial skills, connect with
+                    like-minded individuals, and access resources
+                    for business within educational institutions</p>
+            </div>
+            <div class="page2-footer n">
+                <img src="./2.png" alt="">
+            </div>
+        </div>
+        <div class="page3 w-full h-[150vh] text-black flex flex-col items-center justify-start py-[3vw] px-[5vw]">
+            <h1 class="uppercase text-[#BD9F67] tracking-tighter text-[3vw] font-bold mb-[2vw]">Our blog</h1>
+            <div class="grid grid-cols-2 gap-8 w-[80%] mt-[4vw]">
+                <div class="card relative h-[25vw] rounded-[1vw] overflow-hidden cursor-pointer" onclick="openPopup('popup1')">
+                    <img src="./parley.jpg" class="w-full  object-cover object-top" alt="">
+                    <div class="absolute bottom-0 left-0 w-full p-[2vw] bg-gradient-to-t from-black/80 to-transparent">
+                        <h2 class="text-white text-[2vw] font-bold">Amul India</h2>
+                        <button class="px-4 py-2 mt-2 bg-[#BD9F67] text-white rounded-full">Read More</button>
+                    </div>
+                </div>
+                <div class="card relative h-[25vw] rounded-[1vw] overflow-hidden cursor-pointer" onclick="openPopup('popup2')">
+                    <img src="./ratantata.jpg" class="w-full h-full object-cover" alt="">
+                    <div class="absolute bottom-0 left-0 w-full p-[2vw] bg-gradient-to-t from-black/80 to-transparent">
+                        <h2 class="text-white text-[2vw] font-bold">Ratan Tata</h2>
+                        <button class="px-4 py-2 mt-2 bg-[#BD9F67] text-white rounded-full">Read More</button>
+                    </div>
+                </div>
+                <div class="card relative h-[25vw] rounded-[1vw] overflow-hidden cursor-pointer" onclick="openPopup('popup3')">
+                    <img src="./amazon.jpg" class="w-full h-full object-cover object-top    " alt="">
+                    <div class="absolute bottom-0 left-0 w-full p-[2vw] bg-gradient-to-t from-black/80 to-transparent">
+                        <h2 class="text-white text-[2vw] font-bold">Amazon.in</h2>
+                        <button class="px-4 py-2 mt-2 bg-[#BD9F67] text-white rounded-full">Read More</button>
+                    </div>
+                </div>
+                <div class="card relative h-[25vw] rounded-[1vw] overflow-hidden cursor-pointer" onclick="openPopup('popup4')">
+                    <img src="./kingfisher.jpg" class="w-full h-full object-cover object-top" alt="">
+                    <div class="absolute bottom-0 left-0 w-full p-[2vw] bg-gradient-to-t from-black/80 to-transparent">
+                        <h2 class="text-white text-[2vw] font-bold">Kingfisher</h2>
+                        <button class="px-4 py-2 mt-2 bg-[#BD9F67] text-white rounded-full">Read More</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Popups -->
+            <div id="popup1" class="fixed inset-0 bg-black/90 hidden z-50">
+                <div class="relative w-full h-full p-[5vw] text-white">
+                    <button onclick="closePopup('popup1')" class="absolute top-4 right-4 text-[2vw]"><i class="ri-close-line"></i></button>
+                    <h2 class="text-[3vw] font-bold mb-4">Amul India</h2>
+                    <p class="text-[1.5vw]"> Amul Kool - A Refreshing ldea That Fizzled Out 
+                        Amul, a dairy giant with decades of trust, decided to break into the carbonated drinks market with Amul Kool. The move was bold, aiming to leverage its strong brand in a category ruled by industry heavyweights like Coca-Cola and Pepsi. 
+                        The Downfall Despite initial excitement, Amul Kool couldn't compete. The fierce competition and lack of product differentiation led to its quiet exit from the market. 
+                        Key Reasons for Failure: 
+                        Strong Competition: The carbonated drinks sector is dominated by established giants with vast distribution networks. Brand Misalignment: Consumers struggled to connect Amul, a dairy-centric brand, with soft drinks. Lack of Differentiation: Amul Kool didn't stand out in a crowded market. Marketing Challenges: Amul's marketing, strong in dairy, didn't translate effectively in the soft drinks arena. Lesson Learned Amul's venture into the carbonated drinks market highlights the importance of aligning new products with brand identity. Proper market research, differentiation, and targeted marketing are key to succeeding in new sectors</p>
+                </div>
+            </div>
+
+            <div id="popup2" class="fixed inset-0 bg-black/90 hidden z-50">
+                <div class="relative w-full h-full p-[5vw] text-white">
+                    <button onclick="closePopup('popup2')" class="absolute top-4 right-4 text-[2vw]"><i class="ri-close-line"></i></button>
+                    <h2 class="text-[3vw] font-bold mb-4">Ratan Tata</h2>
+                    <p class="text-[1.5vw]">Tata Nano - From Dream to Disappointment 
+                        In 2008, the Tata Nano was unveiled as the 'People's Car, promising to transform India's auto industry with its groundbreaking price of just ₹1 lakh. The dream? To make car ownership accessible to millions 
+                        The Big Promise With this bold vision, Tata aimed to revolutionize the market, offering an affordable vehicle for everyone. Expectations were sky-high, with hopes that the Nano would redefine personal transportation. 
+                        The Turn of Events However, the journey from hype to hush began soon after its launch. Safety concerns, branding as a cheap' car, and a lack of aspirational value led to its downfall. Despite the buzz, sales plummeted, and the Nano's story became a cautionary tale for the industry. 
+                        A Missed Opportunity The Tata Nano, once a symbol of hope, ultimately couldn't meet the expectations it set. A bold vision, but a missed opportunity. 
+                        S Stay tuned for more stories of launches that didn't go as planned!</p>
+                </div>
+            </div>
+
+            <div id="popup3" class="fixed inset-0 bg-black/90 hidden z-50">
+                <div class="relative w-full h-full p-[5vw] text-white">
+                    <button onclick="closePopup('popup3')" class="absolute top-4 right-4 text-[2vw]"><i class="ri-close-line"></i></button>
+                    <h2 class="text-[3vw] font-bold mb-4">Amazon.in</h2>
+                    <p class="text-[1.5vw]">Amazon Fire Phone - A Flickering Flame 
+                        In July 2014, Amazon tried to break into the smartphone market with the Amazon Fire Phone, following the success of its Kindle and Fire tablets. Priced at $1 99 with a contract, it aimed to appeal to Amazon's loyal customer base, but the market didn't quite embrace it. 
+                        The Specs With a 4.7-inch display, Snapdragon 800 processor, 2 GB RAM, and Fire OS, it had decent features for the time, but nothing groundbreaking. It even came with 13 MP rear camera and Amazon's unique Dynamic Perspective and Firefly Technology. 
+                        The Downfall Despite innovative features like tilt-based 3D effects and real-world object recognition, the Fire Phone struggled due to: 
+                        Niche Appeal: It catered only to Amazon users, with limited wider market interest. High Price: Overpriced for its mid-range specs. Limited Apps: No Google Play Store access limited app variety. Gimmicky Features: Dynamic Perspective and Firefly failed to impress most users. Lesson Learned Amazon's Fire Phone shows the danger of relying on niche appeal without offering true innovation or competitive pricing. Even a trusted brand must delive value and utilitv to suicceed in comnetitive markets</p>
+                </div>
+            </div>
+
+            <div id="popup4" class="fixed inset-0 bg-black/90 hidden z-50">
+                <div class="relative w-full h-full p-[5vw] text-white">
+                    <button onclick="closePopup('popup4')" class="absolute top-4 right-4 text-[2vw]"><i class="ri-close-line"></i></button>
+                    <h2 class="text-[3vw] font-bold mb-4">Kingfisher</h2>
+                    <p class="text-[1.5vw]">• Founded: 2005 by liquor baron Vijay Mallya 
+                        Known For: Premium services including in-flight entertainment, leather seats, and excellent customer experience. 
+                        Position: Full-service luxury carrier operating both domestic and international routes. Expansion: In 2007, Kingfisher acquired a controlling stake in Air Deccan (a low-cost carrier), boosting its domestic market share and gaining access to international routes. 
+                        KINGFISHER".</p><br>
+                    <p class="text-[1.5vw]">DOWNFALL OF KINGFISHER AIRLINES <br>
+                            • Despite early success, Kingfisher Airlines 
+                            faced severe financial issues 
+                            • Causes: High operational sts, unsustainable debt, and competition from low-cost carriers. 
+                            • Result: Legal battles and controversies surrounded Vijay Mallya, who fled India in 2016 to escape legal proceedings over unpaid loans. 
+                            </p>
+                </div>
+            </div>
+
+            <script>
+                function openPopup(id) {
+                    document.getElementById(id).classList.remove('hidden');
+                }
+
+                function closePopup(id) {
+                    document.getElementById(id).classList.add('hidden');
+                }
+            </script>
+        </div>
+        <div class="page4 w-full h-[100vh] text-black flex flex-col items-center justify-start py-[3vw] px-[5vw]">
+            <h1 class="uppercase text-[#BD9F67] tracking-tighter text-[3vw] font-bold mb-[2vw]">Inspirational Speakers</h1>
+            <p class="text-black text-[1.8vw] text-center">Discover the influential speakers who have shared their wisdom and insights at E-Cell events, enriching the entrepreneurial spirit.</p>
+            <div class="cards mt-[6vw] flex justify-between w-[70%] ">
+                <div class="card w-[20vw] h-[20vw] bg-[#4D5561]  rounded-[1vw] flex flex-col justify-evenly items-center">
+                    <img class="h-[6vw] rounded-full" src="./1.png" alt="">
+                    <h3 class="text-[1.5vw] font-bold">Diti Maurya,</h3>
+                    <h2 class="text-[1.2vw]  font-[3px]">WOND</h2>
+                    <h2 class="text-[1.2vw] font-semibold">FOUNDER</h2>
+                </div>
+                <div class="card w-[20vw] h-[20vw] bg-[#4D5561]  rounded-[1vw] flex flex-col justify-evenly items-center">
+                    <img class="h-[6vw] rounded-full" src="./2 copy.png" alt="">
+                    <h3 class="text-[1.5vw] font-bold">Karan Kumar,</h3>
+                    <h2 class="text-[1.2vw] font-[3px]">WOND</h2>
+                    <h2 class="text-[1.2vw] font-semibold">FOUNDER</h2>
+                </div>
+            </div>
+        </div>
+        <div class="page5 w-full h-[50vh] bg-black flex items-center justify-between px-[5vw] py-[3vw]">
+            <div class="left-side w-[30%]  flex flex-col items-start justify-center ">
+                <img src="./LOGO.png" alt="E-Cell Logo" class="w-[15vw]">
+                <p class="text-[#BD9F67] text-[1.4vw]">Inspiring Innovation, cultivating change</p>
+            </div>
+            <div class="right-side flex flex-col items-start">
+                <h2 class="text-[#BD9F67] text-[2vw] font-bold mb-[2vw]">Connect With Us</h2>
+                <div class="social-icons flex gap-[2vw]">
+                    <a href="https://www.instagram.com/ecell_lncts/" target="_blank" class="hover:scale-110 transition-transform">
+                        <i class="ri-instagram-line text-white text-[2vw] hover:text-[#BD9F67]"></i>
+                    </a>
+                    <a href="https://www.facebook.com/share/p/2keG4pb4pVgJ5NG8/" target="_blank" class="hover:scale-110 transition-transform">
+                        <i class="ri-facebook-fill text-white text-[2vw] hover:text-[#BD9F67]"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/company/e-cell-lncts-bhopal/" target="_blank" class="hover:scale-110 transition-transform">
+                        <i class="ri-linkedin-fill text-white text-[2vw] hover:text-[#BD9F67]"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@E-CELLLNCTSBHOPAL" target="_blank" class="hover:scale-110 transition-transform">
+                        <i class="ri-youtube-fill text-white text-[2vw] hover:text-[#BD9F67]"></i>
+                    </a>
+                </div>
+                <p class="text-white text-[1vw] mt-[2vw]">Email: eclllncts@gamil.com</p>
+                
+                <p class="text-white text-[1vw] mt-[1vw]">Address: LNCTS,
+                    Kalchuri Nagar, <br> Raisen Rd, Bhopal, Madhya Pradesh 462021</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
