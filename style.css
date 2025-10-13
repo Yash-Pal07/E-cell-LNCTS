@@ -550,6 +550,93 @@ button:active::after,
   animation: pulse 4s ease-in-out infinite;
 }
 
+/* Mobile-specific animations */
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Mobile navbar animation */
+@media (max-width: 768px) {
+  .nav-links {
+    animation: slideInFromTop 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .nav-links a {
+    animation: slideInFromLeft 0.3s ease-out;
+  }
+
+  .nav-links a:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  .nav-links a:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .nav-links a:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  .nav-links a:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+  .nav-links a:nth-child(5) {
+    animation-delay: 0.5s;
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Enhanced mobile card animations */
+@media (max-width: 768px) {
+  .card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card:hover {
+    transform: translateY(-8px) scale(1.02);
+  }
+
+  .card:active {
+    transform: scale(0.98);
+  }
+}
+
 /* Enhanced mobile responsiveness */
 @media (max-width: 1200px) {
   .page1-left,
@@ -559,18 +646,19 @@ button:active::after,
   }
 
   .page1-right {
-    margin-top: 2rem;
+    margin-top: 3rem;
   }
 
   .grid {
     grid-template-columns: 1fr !important;
-    gap: 2rem;
+    gap: 2.5rem;
+    width: 90% !important;
   }
 
   .cards {
     flex-direction: column !important;
     align-items: center !important;
-    gap: 2rem;
+    gap: 2.5rem;
   }
 
   .card {
@@ -580,12 +668,14 @@ button:active::after,
 
   .social-icons {
     justify-content: center;
+    gap: 1.5rem !important;
   }
 
   .page5 {
     flex-direction: column !important;
     text-align: center;
-    gap: 2rem;
+    gap: 3rem;
+    padding: 3rem 2rem !important;
   }
 
   .left-side,
@@ -594,41 +684,71 @@ button:active::after,
   }
 }
 
-@media (max-width: 768px) {
-  .text-[4vw] {
-    font-size: 2.5rem !important;
-  }
-  .text-[3vw] {
-    font-size: 2rem !important;
-  }
-  .text-[2vw] {
-    font-size: 1.5rem !important;
-  }
-  .text-[1.5vw] {
-    font-size: 1.2rem !important;
-  }
-  .text-[1.2vw] {
-    font-size: 1rem !important;
-  }
-  .text-[1vw] {
-    font-size: 0.9rem !important;
+/* Tablet specific styles */
+@media (max-width: 1024px) {
+  .page1 {
+    padding: 2rem 1.5rem !important;
   }
 
-  /* Mobile navbar fixes */
+  .page2,
+  .page3,
+  .page4 {
+    padding: 2rem 1.5rem !important;
+  }
+
+  .grid {
+    width: 95% !important;
+    gap: 2rem;
+  }
+
+  .card {
+    height: 350px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Enhanced mobile typography */
+  .text-[4vw] {
+    font-size: 2.8rem !important;
+    line-height: 1.1 !important;
+  }
+  .text-[3vw] {
+    font-size: 2.2rem !important;
+    line-height: 1.2 !important;
+  }
+  .text-[2vw] {
+    font-size: 1.6rem !important;
+    line-height: 1.3 !important;
+  }
+  .text-[1.5vw] {
+    font-size: 1.3rem !important;
+    line-height: 1.4 !important;
+  }
+  .text-[1.2vw] {
+    font-size: 1.1rem !important;
+    line-height: 1.5 !important;
+  }
+  .text-[1vw] {
+    font-size: 1rem !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Mobile navbar enhancements */
   .nav-links {
     flex-direction: column !important;
-    gap: 1rem !important;
+    gap: 1.5rem !important;
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(20px);
-    padding: 2rem;
+    background: rgba(0, 0, 0, 0.98);
+    backdrop-filter: blur(25px);
+    padding: 3rem 2rem;
     transform: translateY(-100%);
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-top: 1px solid rgba(189, 159, 103, 0.2);
   }
 
   .nav-links.active {
@@ -637,55 +757,74 @@ button:active::after,
     visibility: visible;
   }
 
+  .nav-links a {
+    font-size: 1.2rem !important;
+    padding: 0.8rem 0;
+    text-align: center;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    background: rgba(189, 159, 103, 0.1);
+    transform: translateX(5px);
+  }
+
   .navbar {
     position: relative;
+    padding: 1rem 1.5rem !important;
   }
 
   .hamburger {
     display: block !important;
   }
 
-  /* Page sizing fixes */
+  /* Enhanced page layouts */
   .page1 {
     height: 100vh;
     min-height: 100vh;
+    padding: 2rem 1.5rem !important;
   }
 
   .page2 {
-    height: 100vh;
+    height: auto;
     min-height: 100vh;
+    padding: 3rem 1.5rem !important;
   }
 
   .page3 {
     height: auto;
     min-height: 100vh;
-    padding: 2rem 1rem;
+    padding: 3rem 1.5rem !important;
   }
 
   .page4 {
-    height: 100vh;
+    height: auto;
     min-height: 100vh;
+    padding: 3rem 1.5rem !important;
   }
 
   .page5 {
     height: auto;
-    min-height: 50vh;
-    padding: 2rem 1rem;
+    min-height: 60vh;
+    padding: 3rem 1.5rem !important;
   }
 
-  /* Blog section fixes */
+  /* Enhanced blog section */
   .grid {
     grid-template-columns: 1fr !important;
-    gap: 1.5rem !important;
-    width: 95% !important;
-  }
-
-  .card {
-    height: 300px !important;
+    gap: 2rem !important;
     width: 100% !important;
   }
 
-  /* Popup fixes */
+  .card {
+    height: 320px !important;
+    width: 100% !important;
+    border-radius: 16px !important;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Enhanced popup design */
   .popup {
     padding: 1rem !important;
   }
@@ -693,36 +832,136 @@ button:active::after,
   .popup div {
     width: 95% !important;
     height: 90% !important;
-    padding: 1.5rem !important;
+    padding: 2rem !important;
+    border-radius: 20px !important;
+  }
+
+  /* Mobile-specific animations */
+  .page1-left,
+  .page1-right {
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  .card {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  .card:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  .card:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .card:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  .card:nth-child(4) {
+    animation-delay: 0.4s;
   }
 }
 
 @media (max-width: 480px) {
+  /* Small mobile typography */
   .text-[4vw] {
-    font-size: 2rem !important;
+    font-size: 2.2rem !important;
+    line-height: 1.1 !important;
   }
   .text-[3vw] {
-    font-size: 1.5rem !important;
+    font-size: 1.8rem !important;
+    line-height: 1.2 !important;
   }
   .text-[2vw] {
-    font-size: 1.2rem !important;
+    font-size: 1.4rem !important;
+    line-height: 1.3 !important;
   }
   .text-[1.5vw] {
-    font-size: 1rem !important;
+    font-size: 1.2rem !important;
+    line-height: 1.4 !important;
   }
   .text-[1.2vw] {
-    font-size: 0.9rem !important;
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
   }
   .text-[1vw] {
-    font-size: 0.8rem !important;
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
   }
 
+  /* Small mobile layout */
   .page1-left,
   .page1-right {
     padding: 1rem !important;
   }
 
+  .page1,
+  .page2,
+  .page3,
+  .page4,
+  .page5 {
+    padding: 2rem 1rem !important;
+  }
+
   .card {
-    height: 250px !important;
+    height: 280px !important;
+    border-radius: 12px !important;
+  }
+
+  .nav-links {
+    padding: 2rem 1rem !important;
+  }
+
+  .nav-links a {
+    font-size: 1.1rem !important;
+    padding: 0.6rem 0;
+  }
+
+  .social-icons {
+    gap: 1rem !important;
+  }
+
+  .social-icons i {
+    font-size: 1.2rem !important;
+    min-width: 1.2rem;
+    min-height: 1.2rem;
+  }
+}
+
+/* Additional mobile enhancements */
+@media (max-width: 768px) {
+  /* Touch-friendly buttons */
+  button,
+  .btn {
+    min-height: 48px;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  /* Better spacing for mobile */
+  .space-y-6 > * + * {
+    margin-top: 1.5rem;
+  }
+
+  .space-y-4 > * + * {
+    margin-top: 1rem;
+  }
+
+  /* Enhanced card hover effects for mobile */
+  .card:active {
+    transform: scale(0.98);
+  }
+
+  /* Better popup for mobile */
+  .popup div {
+    margin: 1rem;
+    max-height: calc(100vh - 2rem);
+  }
+
+  /* Improved contact section */
+  .contact-info {
+    text-align: center;
+  }
+
+  .contact-info p {
+    justify-content: center;
   }
 }

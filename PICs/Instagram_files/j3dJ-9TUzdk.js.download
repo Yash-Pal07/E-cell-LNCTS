@@ -1,0 +1,3 @@
+;/*FB_PKG_DELIM*/
+
+__d("useOnRoutableDialogClose",["CometRouteRenderType","react","useCometRouterDispatcher"],(function(a,b,c,d,e,f,g){"use strict";var h,i=(h||d("react")).useCallback;function a(a,b){a===void 0&&(a="/");b===void 0&&(b={});var e=d("CometRouteRenderType").useIsPushView(),f=c("useCometRouterDispatcher")(),g=d("CometRouteRenderType").useIsHosted();return i(function(){if(f)if(e)return f.popPushView();else if(g)return f.goBack();else return f.go(a,babelHelpers["extends"]({},b,{target:"self"}))},[b,a,f,g,e])}g["default"]=a}),98);
